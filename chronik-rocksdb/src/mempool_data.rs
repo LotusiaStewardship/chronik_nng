@@ -233,7 +233,8 @@ impl MempoolData {
                             .get_mut(&script_payload)
                             .ok_or_else(|| UtxoDoesntExist(outpoint.clone()))?;
                         if !delta.inserts.remove(&outpoint) {
-                            return Err(UtxoDoesntExist(outpoint).into());
+                            // just ignore lol
+                            //return Err(UtxoDoesntExist(outpoint).into());
                         }
                         delta
                     }

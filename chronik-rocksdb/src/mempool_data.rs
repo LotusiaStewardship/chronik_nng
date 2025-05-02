@@ -63,7 +63,7 @@ pub enum MempoolDataError {
     #[error("Output {0:?} already unspent in mempool")]
     OutputAlreadyUnspent(OutPoint),
 
-    #[critical()]
+    #[warning()]
     #[error("UTXO {0:?} doesn't exist in mempool")]
     UtxoDoesntExist(OutPoint),
 }

@@ -232,10 +232,7 @@ impl MempoolData {
                             .utxos
                             .get_mut(&script_payload)
                             .ok_or_else(|| UtxoDoesntExist(outpoint.clone()))?;
-                        if !delta.inserts.remove(&outpoint) {
-                            // just ignore lol
-                            //return Err(UtxoDoesntExist(outpoint).into());
-                        }
+                        delta.inserts.remove(&outpoint);
                         delta
                     }
                     MempoolDeleteMode::Mined => {
